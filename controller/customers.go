@@ -9,12 +9,12 @@ import (
 )
 
 type Customer struct {
-	Customer_id int     `db:"customer_id" json:" ,omitempty"`
-	First_name  string  `db:"first_name" json:" ,omitempty"`
-	Last_name   string  `db:"last_name" json:" ,omitempty"`
-	Email       string  `db:"email" json:" ,omitempty"`
-	Password    string  `db:"password" json:" ,omitempty"`
-	Img_URL     *string `db:"img_url" json:" ,omitempty"`
+	Customer_id int     `db:"customer_id" json:",omitempty"`
+	Nome        string  `db:"first_name" json:",omitempty"`
+	Sobrenome   string  `db:"last_name" json:",omitempty"`
+	Email       string  `db:"email" json:",omitempty"`
+	Senha       string  `db:"password" json:",omitempty"`
+	Img_URL     *string `db:"img_url" json:",omitempty"`
 }
 
 func GetCustomerByID(w http.ResponseWriter, r *http.Request) {
