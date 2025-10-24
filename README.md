@@ -16,3 +16,8 @@ Essa é uma aplicação Golang
 > ```
 
 Todos os endpoints rodam em Localhost:3000/api/endpoint
+
+> Para testes dentro do cmd (exemplo cliente)
+> ```
+> curl -X GET http://localhost:3000/api/customers      -H "Content-Type: application/json"      -d '{"customer_id": 1}
+> ```
