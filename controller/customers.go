@@ -10,11 +10,11 @@ import (
 
 type Customer struct {
 	Customer_id int     `db:"customer_id" json:",omitempty"`
-	Nome        string  `db:"first_name" json:",omitempty"`
-	Sobrenome   string  `db:"last_name" json:",omitempty"`
+	Name        string  `db:"name" json:",omitempty"`
+	Last_name   *string `db:"last_name" json:",omitempty"`
 	Email       string  `db:"email" json:",omitempty"`
-	Senha       string  `db:"password" json:",omitempty"`
-	Img_URL     *string `db:"img_url" json:",omitempty"`
+	Password    string  `db:"password" json:",omitempty"`
+	Img_URL     *string `db:"img_URL" json:",omitempty"`
 }
 
 func GetCustomerByID(w http.ResponseWriter, r *http.Request) {
@@ -32,7 +32,9 @@ func GetCustomerByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = data.Select(&ct, `SELECT * FROM customer WHERE customer_id = $1`, input.Customer_id)
+	err = data.Select(&ct, `SELECT *
+							FROM customer 
+							WHERE customer_id = $1`, input.Customer_id)
 
 	if err != nil {
 		log.Println("Erro ao consultar usuario!", err)

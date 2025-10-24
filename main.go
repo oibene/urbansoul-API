@@ -30,6 +30,7 @@ func main() {
 	prefix := "/api"
 
 	r.HandleFunc(prefix+"/customers", controller.GetCustomerByID).Methods("GET")
+	r.HandleFunc(prefix+"/products", controller.GetProductByID).Methods("GET")
 
 	http.Handle("/", r)
 
