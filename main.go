@@ -29,8 +29,16 @@ func main() {
 	r := mux.NewRouter()
 	prefix := "/api"
 
+	// CUSTOMER
 	r.HandleFunc(prefix+"/customers", controller.GetCustomerByID).Methods("GET")
+
+	// PRODUCT
 	r.HandleFunc(prefix+"/products", controller.GetProductByID).Methods("GET")
+	r.HandleFunc(prefix+"/images", controller.GetImagesbyProductID).Methods("GET")
+	r.HandleFunc(prefix+"/orders", controller.GetProductsByOrderId).Methods("GET")
+
+	// COMMENTS
+	r.HandleFunc(prefix+"/comments", controller.GetAllComments).Methods("GET")
 
 	http.Handle("/", r)
 

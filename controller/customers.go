@@ -14,7 +14,7 @@ type Customer struct {
 	Last_name   *string `db:"last_name" json:",omitempty"`
 	Email       string  `db:"email" json:",omitempty"`
 	Password    string  `db:"password" json:",omitempty"`
-	Img_URL     *string `db:"img_URL" json:",omitempty"`
+	Img_URL     *string `db:"img_url" json:",omitempty"`
 }
 
 func GetCustomerByID(w http.ResponseWriter, r *http.Request) {
